@@ -12,11 +12,11 @@ try:
         txt = txt.strip().split('\n')
         yy = []
         for i in txt:
-            j = i.split('ssr://')[1]
+            j = i.split('ss://')[1]
             j = j.strip()
             data = base64.urlsafe_b64decode((j + '=' * (-len(j) % 4)).encode()).decode()
             data2 = base64.urlsafe_b64encode((data.split('group=')[0]+'group='+group).encode()).decode()
-            data = 'ssr://'+data2.strip('=')
+            data = 'ss://'+data2.strip('=')
             yy.append(data)
         d = '\n'.join(yy)
         d = (base64.b64encode(d.encode()).decode()).strip('=')
